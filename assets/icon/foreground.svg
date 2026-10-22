@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024"><defs>
+  <radialGradient id="sky" cx="0.55" cy="0.32" r="0.85">
+    <stop offset="0" stop-color="#4a2276"/>
+    <stop offset="0.45" stop-color="#22104a"/>
+    <stop offset="1" stop-color="#07041a"/>
+  </radialGradient>
+  <radialGradient id="moonGlow" cx="0.5" cy="0.5" r="0.5">
+    <stop offset="0.35" stop-color="#e9d6ff" stop-opacity="0.55"/>
+    <stop offset="1" stop-color="#9a6ad8" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="moonFace" cx="0.4" cy="0.35" r="0.75">
+    <stop offset="0" stop-color="#ffffff"/>
+    <stop offset="0.7" stop-color="#ecdcff"/>
+    <stop offset="1" stop-color="#c3a8ee"/>
+  </radialGradient>
+  <radialGradient id="eyeGlow" cx="0.5" cy="0.5" r="0.5">
+    <stop offset="0" stop-color="#d8fff6" stop-opacity="1"/>
+    <stop offset="0.3" stop-color="#3ef0d0" stop-opacity="0.75"/>
+    <stop offset="1" stop-color="#3ef0d0" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="scarf" x1="1" y1="0" x2="0" y2="0">
+    <stop offset="0" stop-color="#5bffe2"/>
+    <stop offset="0.7" stop-color="#25c9ad"/>
+    <stop offset="1" stop-color="#1a8f7e" stop-opacity="0.6"/>
+  </linearGradient>
+  <linearGradient id="fog" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#7a3470" stop-opacity="0"/>
+    <stop offset="1" stop-color="#c45a6e" stop-opacity="0.55"/>
+  </linearGradient></defs><g transform="translate(512 512) scale(0.7) translate(-512 -600)">
+  <g transform="translate(512 610)">
+    <path d="M-40 40 C -160 10 -300 40 -420 -30 C -330 70 -230 100 -120 110 C -240 140 -330 210 -380 260 C -250 230 -130 170 -20 120 Z" fill="url(#scarf)"/>
+    <g transform="translate(12 -12)" opacity="0.7">
+      <path d="M-270 800 L -270 420 C -260 250 -190 160 -100 120 Q 0 95 100 120 C 190 160 260 250 270 420 L 270 800 Z" fill="#9b85ff"/>
+      <circle cx="0" cy="-40" r="165" fill="#9b85ff"/>
+    </g>
+    <path d="M-270 800 L -270 420 C -260 250 -190 160 -100 120 Q 0 95 100 120 C 190 160 260 250 270 420 L 270 800 Z" fill="#000"/>
+    <circle cx="0" cy="-40" r="165" fill="#000"/>
+    <path d="M-60 90 L 60 90 L 70 140 L -70 140 Z" fill="#000"/>
+    <path d="M-140 -120 L -255 -70 L -130 -20 Z" fill="#000"/>
+    <ellipse cx="85" cy="-48" rx="105" ry="55" fill="url(#eyeGlow)" opacity="0.8"/>
+    <path d="M 10 -66 L 165 -56 L 157 -30 L 16 -38 Z" fill="#c8fff6"/>
+  </g></g></svg>
