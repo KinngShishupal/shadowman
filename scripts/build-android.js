@@ -36,11 +36,14 @@ if (!fs.existsSync(path.join(androidDir, 'keystore.properties'))) {
   process.exit(1);
 }
 
-const gradlew = process.platform === 'win32' ? 'gradlew.bat' : './gradlew';
-const result = spawnSync(gradlew, [target.task], {
+const gradlew = path.join(
+  androidDir,
+  process.platform === 'win32' ? 'gradlew.bat' : 'gradlew',
+);
+const result = spawnSync(`"${gradlew}" ${target.task}`, {
   cwd: androidDir,
   stdio: 'inherit',
-  shell: process.platform === 'win32',
+  shell: true,
 });
 if (result.status !== 0) {
   process.exit(result.status ?? 1);
