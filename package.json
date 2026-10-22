@@ -9,6 +9,9 @@
     "start": "react-native start",
     "test": "jest",
     "android:release": "react-native run-android --mode release",
+    "keystore": "node scripts/make-keystore.js",
+    "build:apk": "node scripts/build-android.js apk",
+    "build:aab": "node scripts/build-android.js aab",
     "audio": "node scripts/make-audio.js",
     "icons": "node scripts/make-icons.js"
   },

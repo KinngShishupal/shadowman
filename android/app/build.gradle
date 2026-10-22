@@ -72,6 +72,16 @@ def enableProguardInReleaseBuilds = false
  */
 def jscFlavor = 'io.github.react-native-community:jsc-android:2026004.+'
 
+/**
+ * Release signing credentials, created by `npm run keystore`. Gitignored.
+ */
+def keystorePropertiesFile = rootProject.file("keystore.properties")
+def keystoreProperties = null
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties = new Properties()
+    keystorePropertiesFile.withInputStream { keystoreProperties.load(it) }
+}
+
 android {
     ndkVersion rootProject.ext.ndkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
@@ -92,15 +102,23 @@ android {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
         }
+        if (keystoreProperties) {
+            release {
+                storeFile file(keystoreProperties['storeFile'])
+                storePassword keystoreProperties['storePassword']
+                keyAlias keystoreProperties['keyAlias']
+                keyPassword keystoreProperties['keyPassword']
+            }
+        }
     }
     buildTypes {
         debug {
             signingConfig signingConfigs.debug
         }
         release {
-            // Caution! In production, you need to generate your own keystore file.
-            // see https://reactnative.dev/docs/signed-apk-android.
-            signingConfig signingConfigs.debug
+            // Signed with android/keystore.properties when present (npm run keystore),
+            // otherwise the debug key so `npm run android:release` still works locally.
+            signingConfig keystoreProperties ? signingConfigs.release : signingConfigs.debug
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
         }
